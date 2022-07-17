@@ -1,5 +1,6 @@
 class Spend_type:
-    def __init__(self, _id = None):
-        self.id = _id 
-        self.spend_type_options = []
+    def __init__(self, _name, _id = None):
+        self.id = _id
+        self.name = _name 
+        
 
