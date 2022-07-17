@@ -31,7 +31,28 @@ def select(id):
     sql = "SELECT * FROM users WHERE id = %s"
     values = [id]
     results = run_sql
+
+    if results:
+        result = results[0]
+        merchant = Merchant(result['_merchant_name'], result['id'] )
+    return merchant
+
 # DELETE ALL 
+def delete_all(id):
+    sql = "DELETE * FROM merchants"
+    run_sql(sql)
+# Added the star for delete all
+
 # DELETE
+def delete(id):
+    sql = "DELETE * FROM merchants WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 # UPDATE
-# TASKS
+def update(merchant):
+    sql = "UPDATE merchants SET (_merchant_name) = (%s) WHERE id = %s"
+    values = [merchant._merchant_name, merchant.id]
+    run_sql(sql, values)
+
+# May need a def here- run functions first. 

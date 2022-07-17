@@ -59,4 +59,3 @@ def update (transaction):
 # This might cause errors it's not written very nicely. 
 
 # MERCHANT
-# This will be our relationship class. May need another for spend. 
