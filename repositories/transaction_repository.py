@@ -1,9 +1,8 @@
-from unittest import result
 from db.run_sql import run_sql
 
 from models.transaction import Transaction
 from models.merchant import Merchant
-from models.spend_type import Spend_type
+from models.type import Type
 
 # SAVE
 def save(transaction):
