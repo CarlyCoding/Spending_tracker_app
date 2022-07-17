@@ -58,4 +58,5 @@ def update (transaction):
     run_sql(sql, values)
 # This might cause errors it's not written very nicely. 
 
-# TASKS
+# MERCHANT
+# This will be our relationship class. May need another for spend. 
