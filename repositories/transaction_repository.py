@@ -45,7 +45,7 @@ def delete_all():
 
 # DELETE
 def delete(id):
-    sql = "DELETE  FROM transactions WHERE id = %s"
+    sql = "DELETE FROM transactions WHERE id = %s"
     values = [id]
     run_sql(sql)
 # no star for all here, should be fine as delete with id. Check with testing. 
