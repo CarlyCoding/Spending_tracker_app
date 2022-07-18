@@ -5,7 +5,7 @@ from models.transaction import Transaction
 from models.type import Type
 
 def save(type):
-    sql = "INSERT INTO types ( name ) VALUES ( %s ) RETURNING id"
+    sql = "INSERT INTO types ( name ) VALUES ( %s ) RETURNING *"
     values = [type.name]
     results = run_sql( sql, values)
     type.id = results[0]['id']
@@ -20,7 +20,7 @@ def select_all():
     for row in results:
         type = Type(row['name'], ['id'])
         types.append(type)
-    return type
+    return types
 
 def select(id):
     type = None
@@ -32,10 +32,9 @@ def select(id):
         type = Type(result['name'], result['id'])
     return type
 
-# Enter the inner join relationship here. 
 
 def delete_all():
     sql = "DELETE FROM types"
     run_sql(sql)
 
-    
+

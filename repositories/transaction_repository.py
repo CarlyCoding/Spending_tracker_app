@@ -6,8 +6,8 @@ from models.type import Type
 
 # SAVE
 def save(transaction):
-    sql = "INSERT INTO transactions (_description, _amount, _date) VALUES (%s, %s, %s) RETURNING *"
-    values = [transaction._description, transaction._amount, transaction._date]
+    sql = "INSERT INTO transactions (_description, _amount) VALUES (%s, %s) RETURNING *"
+    values = [transaction._description, transaction._amount]
     results = run_sql(sql, values)
     id = results[0]['id']
     transaction.id = id
@@ -21,7 +21,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        transaction = Transaction(row['_description'], row['_amount'], row['_date'], row['id'] )
+        transaction = Transaction(row['_description'], row['_amount'], row['id'] )
         transactions.append(transaction)
     return transactions
 
@@ -34,7 +34,7 @@ def select(id):
 
     if results:
         result = results[0]
-        transaction = Transaction(result['_description'], result['_amount'], result['_date'], result['id'] )
+        transaction = Transaction(result['_description'], result['_amount'], result['id'] )
     return transaction
 
 # DELETE ALL 
@@ -52,8 +52,8 @@ def delete(id):
 
 # UPDATE
 def update (transaction):
-    sql = "UPDATE transactions SET (_description, _amount, _date) = (%s, %s, %s) WHERE id = %s"
-    values = [transaction._description, transaction._amount, transaction._date, transaction._id]
+    sql = "UPDATE transactions SET (_description, _amount) = (%s, %s) WHERE id = %s"
+    values = [transaction._description, transaction._amount, transaction._id]
     run_sql(sql, values)
 # This might cause errors it's not written very nicely. 
 
