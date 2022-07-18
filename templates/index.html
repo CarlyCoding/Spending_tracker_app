@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Spending_ tracker</title>
 </head>
-    <div class="Logo_header">
-        <h1>
-            Spending tracker- TEST
-        </h1>
+    <div class="logo_header">
+       <h1>
+        Spending Tracker 
+       </h1>
     </div class>
 <body>
-
+    <ul class="menu">
+        <li><a href="/transactions">Transactions</a></li>
+        <li><a href="/templates/pages/merchants.html">Merchants</a></li>
+        <li><a href="/templates/pages/tags.html">Spending Tags</a></li>
+    </ul>
 </body>
 </html>
 

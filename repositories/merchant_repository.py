@@ -7,7 +7,7 @@ from models.type import Type
 # SAVE
 def save(merchant):
     sql = "INSERT INTO merchants (_merchant_name) VALUES (%s) RETURNING *"
-    values = [merchant._merchant_name]
+    values = [merchant.merchant_name]
     results = run_sql(sql, values)
     id = results[0]['id']
     merchant.id = id 

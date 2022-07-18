@@ -11,11 +11,11 @@ transactions_blueprint = Blueprint("transactions", __name__)
 @transactions_blueprint.route("/transactions")
 def transactions():
     transactions = transaction_repository.select_all()
-    return render_template("transactions.new.html", all_transactions = transactions)
+    return render_template("pages/transactions.html", all_transactions = transactions)
 
 
 # GET 'transactions/new'
-@transactions_blueprint.route("transactions/new", methods =['GET'])
+@transactions_blueprint.route("/transactions/new", methods =['GET'])
 def new_transaction():
     merchants = merchant_repository.select_all()
     return render_template("transactions/new.html", all_merchants = merchants)
@@ -47,9 +47,11 @@ def edit_transaction(id):
     # put in a line here for type
     return render_template('transactions/edit.html', transaction= transaction)
     # INSERT MORE IN RETURN STATEMENT FOR OTHER CLASSES. 
+
+
 # UPDATE 
 # PUT '/tasks/<id>'
-
+# more crap here
 
 # DELETE 
 # DELETE '/tasks/<id>'

@@ -1,10 +1,10 @@
 from flask import Flask, render_template
 
-# from controllers.spend_controller import tasks_blueprint      UNCOMMENT 
+from controllers.transaction_controller import transactions_blueprint
 # change from tasks to spend        
 app = Flask(__name__)
 
-# app.register_blueprint(tasks_blueprint)   UNCOMMENT 
+app.register_blueprint(transactions_blueprint)
 # Again change from tasks
 
 @app.route('/')
