@@ -37,7 +37,7 @@ def create_type():
 # SHOW
 # GET '/transactions'
 @types_blueprint.route('/types/<id>', methods=['GET'])
-def show_type(id)
+def show_type(id):
     type = type_repository.select(id)
     return render_template('types/show.html', type = type)
 

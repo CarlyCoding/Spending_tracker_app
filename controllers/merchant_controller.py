@@ -9,7 +9,7 @@ import repositories.type_repository as type_repository
 
 merchants_blueprint = Blueprint("merchants", __name__)
 
-merchants_blueprint.route("/merchants")
+@merchants_blueprint.route("/all_merchants")
 def merchants():
     merchants = merchant_repository.select_all()
     return render_template("pages/merchants.html", all_merchants = merchants)
@@ -23,7 +23,7 @@ def new_merchant():
 
 # CREATE
 # POST 'merchants'
-@merchants_blueprint.route("/merchants", methods= ['POST'])
+@merchants_blueprint.route("/new_merchants", methods= ['POST'])
 def create_transaction():
     name = request.form['name']
     merchant_repository.save(merchant)
@@ -50,7 +50,7 @@ def merchant_transaction(id):
 
 # DELETE 
 # For deleting a merchant 
-@merchants_blueprint.route("merchants/<id>./delete", methods = ['POST'])
+@merchants_blueprint.route("/merchants/<id>./delete", methods = ['POST'])
 def delete_merchants(id):
     merchant_repository.delete(id)
     return redirect('/merchants')

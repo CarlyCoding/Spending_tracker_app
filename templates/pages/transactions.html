@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Transactions Page</title>
+        <div class="transactions_header">
+            <h1>
+                Transactions
+            </h1>
+        </div>
 </head>
 <body>
-    <h1>This is a test</h1>
+    <div class="transaction_manager"
+    <form> 
+        <label for="Type"> Spending Type</label><input type="Type"> 
+            <button>Submit</button>
+        <label for="Merchant">Merchant</label><input type="Merchant"
+            <button>Submit</button>
+        <label for="Description">Description</label><input type="Description">
+            <button>Submit</button>
+        <label for="Amount">Amount</label><input type="Amount"
+            <button>Submit</button>
+    </form>
+
+    <div class="transaction_list"
+        <ol>
+            <h3>
+                This is an empty list placeholder
+            </h3>
+        </ol>
+    
 </body>
 </html>

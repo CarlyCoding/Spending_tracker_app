@@ -1,11 +1,15 @@
 from flask import Flask, render_template
 
 from controllers.transaction_controller import transactions_blueprint
-# change from tasks to spend        
+from controllers.merchant_controller import merchants_blueprint
+from controllers.type_controller import types_blueprint
+        
 app = Flask(__name__)
 
 app.register_blueprint(transactions_blueprint)
-# Again change from tasks
+app.register_blueprint(merchants_blueprint)
+app.register_blueprint(types_blueprint)
+
 
 @app.route('/')
 def home():

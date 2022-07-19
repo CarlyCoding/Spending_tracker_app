@@ -16,3 +16,23 @@ html {
     list-style: none;
 }
 
+.transactions_header{
+    font-family: 'Pacifico', sans-serif;
+    text-align: center;
+}
+
+.transaction_manager{
+    text-align: center;
+    padding-top: 2cm;
+}
+
+.transaction_list{
+    font-family: 'Pacifico', sans-serif;
+    padding-top: 4cm;
+    text-align: left;
+}
+
+.spend{
+    font-family: 'Pacifico', sans-serif;
+    text-align: center;
+}
