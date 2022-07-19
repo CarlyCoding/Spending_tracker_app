@@ -7,13 +7,13 @@ import repositories.merchant_repository as merchant_repository
 import repositories.transaction_repository as transaction_repository
 import repositories.type_repository as type_repository
 
-merchants_blueprint = Merchant("merchant", __name__)
+merchants_blueprint = Blueprint("merchants", __name__)
 
 merchants_blueprint.route("/merchants")
 def merchants():
     merchants = merchant_repository.select_all()
     return render_template("pages/merchants.html", all_merchants = merchants)
-    
+
 # GET 'merchants/new'
 @merchants_blueprint.route("/merchants/new", methods= ['GET'])
 def new_merchant():

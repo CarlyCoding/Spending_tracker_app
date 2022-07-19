@@ -10,9 +10,9 @@ import repositories.type_repository as type_repository
 # Consider changing this all to the word tags (word change)
 
 
-types_blueprint = Blueprint("type", __name__)
+types_blueprint = Blueprint("types", __name__)
 
-@types_blueprint.route("/type")
+@types_blueprint.route("/types")
 def types():
     types = type_repository.select_all()
     return render_template("pages/types.html", all_types = types)

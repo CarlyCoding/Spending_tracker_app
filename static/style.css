@@ -3,8 +3,16 @@ html {
 }
 
 .logo_header{
-    font-family: 'Aclonica', sans-serif;
+    font-family: 'Pacifico', sans-serif;
     font-size: xx-large;
+    text-align: center;
 }
 
-/* Get the main menu list styled and working */
+.menu{
+    font-family: 'Pacifico', sans-serif;
+    font-size: x-large;
+    text-align: center;
+    padding-top: 10cm;
+    list-style: none;
+}
+
