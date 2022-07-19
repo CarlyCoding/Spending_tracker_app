@@ -45,8 +45,7 @@ def merchant_transaction(id):
 # Potentially insert more here. 
 
 # UPDATE 
-# Put something here for updating a merchant
-# something something code 
+# Put something here for updating a merchant if required
 
 # DELETE 
 # For deleting a merchant 

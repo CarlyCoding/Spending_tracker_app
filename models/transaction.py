@@ -4,5 +4,3 @@ class Transaction:
         self.amount = _amount
         self.id = _id
 
-
-# Taking off date to use at a later point once MVP has been entered onto database 

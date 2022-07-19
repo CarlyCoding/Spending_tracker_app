@@ -18,7 +18,6 @@ merchant_repository.save(merchant2)
 merchant3 = Merchant("Scottish Gas")
 merchant_repository.save(merchant3)
 
-
 type1 = Type("Household Bills")
 type_repository.save(type1)
 type2 = Type("Rent/ Mortgage")
@@ -35,8 +34,6 @@ type7 = Type("Repayments")
 type_repository.save(type7)
 type8 = Type("Miscellaneous")
 type_repository.save(type8)
-all_selected = type_repository.select_all()
-print(all_selected)
 
 
 transaction1 = Transaction("A lovely cheese pizza, just for me", 13.40)
@@ -48,6 +45,4 @@ transaction_repository.save(transaction3)
 
 # There is a select all here. Add at later date if required. 
 
-
-pdb.set_trace()
 

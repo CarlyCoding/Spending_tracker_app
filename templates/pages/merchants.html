@@ -11,5 +11,19 @@
     <div class="merchant_header">
         <h1> Merchants </h1>
     </div>
+
+    <div class="merchant_table">
+        <form action="/merchants/new" method="POST">
+            <label for="Merchant">New Merchant</label><input type="Merchant">
+            <button>Submit</button>
+        </form>
+    </div>
+    <div class="merchant_list">
+        <ol>
+            {% for merchant in all_merchants %}
+            <li>{{ merchant.merchant_name}}</li>
+            {% endfor %}
+        </ol>
+    </div>
 </body>
 </html>
