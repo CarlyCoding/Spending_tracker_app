@@ -19,6 +19,8 @@ def transactions():
 def new_transaction():
     merchants = merchant_repository.select_all()
     return render_template("transactions/new.html", all_merchants = merchants)
+# Think this might be wrong change later
+
 
 # CREATE 
 # POST '/transactions'
@@ -55,7 +57,7 @@ def edit_transaction(id):
 
 # DELETE 
 # DELETE '/tasks/<id>'
-@transactions_blueprint.route("/tasks/<id>/delete", methods=['POST'])
-def delete_task(id):
+@transactions_blueprint.route("/transactions/<id>/delete", methods=['POST'])
+def delete_transaction(id):
     transaction_repository.delete(id)
     return redirect('/transactions')
