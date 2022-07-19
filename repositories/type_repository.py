@@ -24,7 +24,7 @@ def select_all():
 
 def select(id):
     type = None
-    sql = "SELECT * FROM locations WHERE id = %s"
+    sql = "SELECT * FROM types WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 

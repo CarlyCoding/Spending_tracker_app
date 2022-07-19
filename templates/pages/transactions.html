@@ -13,24 +13,21 @@
         </div>
 </head>
 <body>
-    <div class="transaction_manager"
-    <form> 
+    <div class="transaction_manager">
+    <form action="/transactions/new" method="POST"> 
         <label for="Type"> Spending Type</label><input type="Type"> 
-            <button>Submit</button>
-        <label for="Merchant">Merchant</label><input type="Merchant"
-            <button>Submit</button>
+        <label for="Merchant">Merchant</label><input type="Merchant">
         <label for="Description">Description</label><input type="Description">
-            <button>Submit</button>
-        <label for="Amount">Amount</label><input type="Amount"
+        <label for="Amount">Amount</label><input type="Amount">
             <button>Submit</button>
     </form>
-
-    <div class="transaction_list"
+    </div>
+    <div class="transaction_list">
         <ol>
-            <h3>
-                This is an empty list placeholder
-            </h3>
+            {% for transaction in all_transactions %}
+            <li>{{ transaction.description}}</li>
+            {% endfor %}
         </ol>
-    
+    </div>
 </body>
 </html>

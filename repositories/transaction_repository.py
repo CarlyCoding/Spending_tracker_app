@@ -6,8 +6,8 @@ from models.type import Type
 
 # SAVE
 def save(transaction):
-    sql = "INSERT INTO transactions (_description, _amount) VALUES (%s, %s) RETURNING *"
-    values = [transaction._description, transaction._amount]
+    sql = "INSERT INTO transactions (description, amount) VALUES (%s, %s) RETURNING *"
+    values = [transaction.description, transaction.amount]
     results = run_sql(sql, values)
     id = results[0]['id']
     transaction.id = id
@@ -17,44 +17,44 @@ def save(transaction):
 def select_all():
     transactions = []
 
-    sql = "SELECT * FROM users"
+    sql = "SELECT * FROM transactions"
     results = run_sql(sql)
 
     for row in results:
-        transaction = Transaction(row['_description'], row['_amount'], row['id'] )
+        transaction = Transaction(row['description'], row['amount'], row['id'] )
         transactions.append(transaction)
     return transactions
 
 # SELECT
 def select(id):
     transaction = None
-    sql = "SELECT * FROM users WHERE id = %s"
+    sql = "SELECT * FROM transactions WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
 
     if results:
         result = results[0]
-        transaction = Transaction(result['_description'], result['_amount'], result['id'] )
+        transaction = Transaction(result['description'], result['amount'], result['id'] )
     return transaction
 
 # DELETE ALL 
 def delete_all():
     sql = "DELETE * FROM transactions"
     run_sql(sql)
-# added the all here, may be source of future errors
+
 
 # DELETE
 def delete(id):
     sql = "DELETE FROM transactions WHERE id = %s"
     values = [id]
     run_sql(sql)
-# no star for all here, should be fine as delete with id. Check with testing. 
+
 
 # UPDATE
 def update (transaction):
-    sql = "UPDATE transactions SET (_description, _amount) = (%s, %s) WHERE id = %s"
-    values = [transaction._description, transaction._amount, transaction._id]
+    sql = "UPDATE transactions SET (description, amount) = (%s, %s) WHERE id = %s"
+    values = [transaction.description, transaction.amount, transaction.id]
     run_sql(sql, values)
-# This might cause errors it's not written very nicely. 
+
 
 # MERCHANT

@@ -15,11 +15,11 @@ def transactions():
 
 
 # GET 'transactions/new'
-@transactions_blueprint.route("/transactions/new", methods =['GET'])
+@transactions_blueprint.route("/transactions/new", methods =['POST'])
 def new_transaction():
-    merchants = merchant_repository.select_all()
-    return render_template("transactions/new.html", all_merchants = merchants)
-# Think this might be wrong change later
+    transactions = transaction_repository.select_all()
+    return render_template("pages/transactions.html", all_transactions = transactions)
+
 
 
 # CREATE 

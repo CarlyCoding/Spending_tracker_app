@@ -6,7 +6,7 @@ from models.type import Type
 
 # SAVE
 def save(merchant):
-    sql = "INSERT INTO merchants (_merchant_name) VALUES (%s) RETURNING *"
+    sql = "INSERT INTO merchants (merchant_name) VALUES (%s) RETURNING *"
     values = [merchant.merchant_name]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -21,20 +21,20 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        merchant = Merchant(row['_merchant_name'], row['id'] )
+        merchant = Merchant(row['merchant_name'], row['id'] )
         merchants.append(merchant)
     return merchants
 
 # SELECT
 def select(id):
     merchant = None
-    sql = "SELECT * FROM users WHERE id = %s"
+    sql = "SELECT * FROM merchants WHERE id = %s"
     values = [id]
     results = run_sql
 
     if results:
         result = results[0]
-        merchant = Merchant(result['_merchant_name'], result['id'] )
+        merchant = Merchant(result['merchant_name'], result['id'] )
     return merchant
 
 # DELETE ALL 
@@ -51,8 +51,8 @@ def delete(id):
 
 # UPDATE
 def update(merchant):
-    sql = "UPDATE merchants SET (_merchant_name) = (%s) WHERE id = %s"
-    values = [merchant._merchant_name, merchant.id]
+    sql = "UPDATE merchants SET (merchant_name) = (%s) WHERE id = %s"
+    values = [merchant.merchant_name, merchant.id]
     run_sql(sql, values)
 
 # May need a def here- run functions first. 

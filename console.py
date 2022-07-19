@@ -39,11 +39,11 @@ all_selected = type_repository.select_all()
 print(all_selected)
 
 
-transaction1 = Transaction("A lovely cheese pizza, just for me", 13.40, datetime(2021,12,7))
+transaction1 = Transaction("A lovely cheese pizza, just for me", 13.40)
 transaction_repository.save(transaction1)
-transaction2 = Transaction("Subway", 12.00, datetime(2022,7,7))
+transaction2 = Transaction("Subway", 12.00)
 transaction_repository.save(transaction2)
-transaction3 = Transaction("Electric bills for the month", 430.50, datetime(2022,7,1))
+transaction3 = Transaction("Electric bills for the month", 430.50)
 transaction_repository.save(transaction3)
 
 # There is a select all here. Add at later date if required. 
