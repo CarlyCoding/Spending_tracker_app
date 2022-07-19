@@ -50,7 +50,6 @@ def edit_transaction(id):
     return render_template('transactions/edit.html', transaction= transaction)
     # INSERT MORE IN RETURN STATEMENT FOR OTHER CLASSES. 
 
-
 # UPDATE 
 # PUT '/tasks/<id>'
 # more crap here

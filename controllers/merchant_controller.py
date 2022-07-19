@@ -38,9 +38,19 @@ def show_merchant(id):
 
 # EDIT
 # GET '/merchants'
+@merchants_blueprint.route("/merchants/<id>/edit", methods = ['GET'])
+def merchant_transaction(id):
+    merchant = merchant_repository.select(id)
+    return render_template('merchants/edit.html', merchant = merchant)
+# Potentially insert more here. 
 
 # UPDATE 
 # Put something here for updating a merchant
+# something something code 
 
 # DELETE 
 # For deleting a merchant 
+@merchants_blueprint.route("merchants/<id>./delete", methods = ['POST'])
+def delete_merchants(id):
+    merchant_repository.delete(id)
+    return redirect('/merchants')
