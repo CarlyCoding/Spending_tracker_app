@@ -15,9 +15,14 @@
     <form action="/types/new" method="POST">
         <label for="New Tag">New Tag</label><input type="New tag">
         <button>Submit</button>
+    </div>
+    <div class="transaction_list">
+        <ol>
+        {% for type in all_types %}
+         <li>{{ type.name }} </li> 
+        {% endfor %}
+        </ol>
+        </div>
 
-<!-- Inserted a list here but it didn't like it- type undefined error message -->
-
-</div>
 </body>
 </html>

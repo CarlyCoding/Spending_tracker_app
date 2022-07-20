@@ -23,7 +23,9 @@ def new_transaction():
     merchant = request.form["Merchant"]
     description = request.form["Description"]
     amount = request.form["Amount"]
-    transaction = Transaction(description,amount)
+    spend_type_object = type_repository.select(spend_type)
+    merchant_object = merchant_repository.select(merchant)
+    transaction = Transaction(description,amount,merchant_object,spend_type_object)
     transaction_repository.save(transaction)
     return redirect("/transactions")
 

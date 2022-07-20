@@ -34,11 +34,38 @@
     </form>
     </div>
     <div class="transaction_list">
-        <ol>
+        <table>
+            <tr>
+                <th>
+                    Description 
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Merchant
+                </th>
+                <th>
+                    Spending Type
+                </th>
+            </tr>
             {% for transaction in all_transactions %}
-            <li>{{ transaction.description}} {{ transaction.amount }}</li> 
+                <tr>
+                    <td>
+                        {{transaction.description}}
+                    </td>
+                    <td>
+                        {{transaction.amount}}
+                    </td>
+                    <td>
+                        {{transaction.merchant.merchant_name}}
+                    </td>
+                    <td>
+                        {{transaction.spend_type.name}}
+                    </td>
+                </tr>
             {% endfor %}
-        </ol>
+        </table>
     </div>
 </body>
 </html>

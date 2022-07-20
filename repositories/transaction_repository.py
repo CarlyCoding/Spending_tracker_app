@@ -3,11 +3,13 @@ from db.run_sql import run_sql
 from models.transaction import Transaction
 from models.merchant import Merchant
 from models.type import Type
+from repositories import merchant_repository, type_repository
+
 
 # SAVE
 def save(transaction):
-    sql = "INSERT INTO transactions (description, amount) VALUES (%s, %s) RETURNING *"
-    values = [transaction.description, transaction.amount]
+    sql = "INSERT INTO transactions (description, amount, merchant_id, type_id) VALUES (%s, %s, %s, %s) RETURNING *"
+    values = [transaction.description, transaction.amount, transaction.merchant.id, transaction.spend_type.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     transaction.id = id
@@ -21,7 +23,9 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        transaction = Transaction(row['description'], row['amount'], row['id'] )
+        spend_type_object = type_repository.select(row['type_id'])
+        merchant_object = merchant_repository.select(row['merchant_id'])
+        transaction = Transaction(row['description'], row['amount'], merchant_object, spend_type_object, row['id'])
         transactions.append(transaction)
     return transactions
 
@@ -34,7 +38,9 @@ def select(id):
 
     if results:
         result = results[0]
-        transaction = Transaction(result['description'], result['amount'], result['id'] )
+        spend_type_object = type_repository.select(result['type_id'])
+        merchant_object = merchant_repository.select(result['merchant_id'])
+        transaction = Transaction(result['description'], result['amount'], merchant_object, spend_type_object, result['id'] )
     return transaction
 
 # DELETE ALL 

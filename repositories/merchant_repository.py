@@ -30,7 +30,7 @@ def select(id):
     merchant = None
     sql = "SELECT * FROM merchants WHERE id = %s"
     values = [id]
-    results = run_sql
+    results = run_sql(sql,values)
 
     if results:
         result = results[0]
