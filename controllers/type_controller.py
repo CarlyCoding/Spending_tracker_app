@@ -30,9 +30,9 @@ def new_type():
 # POST '/types'
 @types_blueprint.route("/types", methods = ['POST'])
 def create_type():
-    name = request.form['name']
-    # type = Type - finish adding in here. 
-    type_repository.save(type)
+    name = request.form['type']
+    new_tag = Type(name)
+    type_repository.save(new_tag)
     return redirect('/types')
 
 # SHOW
