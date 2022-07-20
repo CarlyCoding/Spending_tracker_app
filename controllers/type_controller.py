@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint 
 from models import merchant
 from models.merchant import Merchant
+from models.type import Type
 import repositories.merchant_repository as merchant_repository
 import repositories.transaction_repository as transaction_repository
 import repositories.type_repository as type_repository
@@ -30,7 +31,7 @@ def new_type():
 @types_blueprint.route("/types", methods = ['POST'])
 def create_type():
     name = request.form['name']
-    # Possibly require something here from other classes. 
+    # type = Type - finish adding in here. 
     type_repository.save(type)
     return redirect('/types')
 

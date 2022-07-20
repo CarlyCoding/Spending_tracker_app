@@ -18,7 +18,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        type = Type(row['name'], ['id'])
+        type = Type(row['name'], row['id'])
         types.append(type)
     return types
 

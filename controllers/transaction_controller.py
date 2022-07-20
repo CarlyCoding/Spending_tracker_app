@@ -11,14 +11,21 @@ transactions_blueprint = Blueprint("transactions", __name__)
 @transactions_blueprint.route("/transactions")
 def transactions():
     transactions = transaction_repository.select_all()
-    return render_template("pages/transactions.html", all_transactions = transactions)
+    merchants = merchant_repository.select_all()
+    types = type_repository.select_all()
+    return render_template("pages/transactions.html", all_transactions = transactions, merchants = merchants, types = types)
 
 
 # GET 'transactions/new'
 @transactions_blueprint.route("/transactions/new", methods =['POST'])
 def new_transaction():
-    transactions = transaction_repository.select_all()
-    return render_template("pages/transactions.html", all_transactions = transactions)
+    spend_type = request.form["Type"]
+    merchant = request.form["Merchant"]
+    description = request.form["Description"]
+    amount = request.form["Amount"]
+    transaction = Transaction(description,amount)
+    transaction_repository.save(transaction)
+    return redirect("/transactions")
 
 
 
@@ -52,7 +59,7 @@ def edit_transaction(id):
 
 # UPDATE 
 # PUT '/tasks/<id>'
-# more crap here
+
 
 # DELETE 
 # DELETE '/tasks/<id>'

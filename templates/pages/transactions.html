@@ -15,17 +15,28 @@
 <body>
     <div class="transaction_manager">
     <form action="/transactions/new" method="POST"> 
-        <label for="Type"> Spending Type</label><input type="Type"> 
-        <label for="Merchant">Merchant</label><input type="Merchant">
-        <label for="Description">Description</label><input type="Description">
-        <label for="Amount">Amount</label><input type="Amount">
+        <label for="Type"> Spending Type</label>
+        <select id="Type" name="Type">
+            {% for spend_type in types %}
+                <option value="{{ spend_type.id }}"> {{spend_type.name}} </option>
+            {% endfor %}
+        </select>
+        <label for="Merchant">Merchant</label>
+        <select id="Merchant" name="Merchant">
+            {% for merchant in merchants %}
+                <option value="{{ merchant.id }}"> {{merchant.merchant_name}} </option>
+            {% endfor %}
+        </select>
+
+        <label for="Description">Description</label><input type="text" name="Description">
+        <label for="Amount">Amount</label><input type="text" name="Amount">
         <button>Submit</button>
     </form>
     </div>
     <div class="transaction_list">
         <ol>
             {% for transaction in all_transactions %}
-            <li>{{ transaction.description}}</li>
+            <li>{{ transaction.description}} {{ transaction.amount }}</li> 
             {% endfor %}
         </ol>
     </div>
